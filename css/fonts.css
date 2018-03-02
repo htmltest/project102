@@ -1,0 +1,33 @@
+@font-face {
+    font-family: "MullerLight";
+    src: url("../fonts/MullerLight.woff") format("woff"),
+         url("../fonts/MullerLight.otf") format("opentype");
+    font-weight: normal;
+}
+@font-face {
+    font-family: "NGTL_Regular";
+    src:
+    url("../fonts/NGTL_Regular.ttf") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "NGTL_Bold";
+    src:
+    url("../fonts/NGTL_Bold.ttf") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "MullerBold";
+    src: url("../fonts/MullerBold.woff") format("woff"),
+    url("../fonts/MullerBold.otf") format("opentype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "MullerExtraBold";
+    src: url("../fonts/MullerExtraBold.woff") format("woff"),
+    url("../fonts/MullerExtraBold.otf") format("opentype");
+    font-weight: normal;
+}

@@ -1,0 +1,92 @@
+.voting {padding:45px 0 120px 0}
+.voting * {box-sizing:border-box; outline:none}
+
+.voting-text {background:#fffce0; max-width:542px; margin:53px 0 0 0; padding:18px 30px 33px 34px; font:16px/24px Arial, Helvetica, sans-serif; color:#414141}
+.voting-text-title {font:26px/36px NGTL_Bold, sans-serif; color:#000; padding:0 0 15px 0}
+.voting-text-item {padding:0 0 0 23px; position:relative; margin:12px 0 0 0}
+.voting-text-item::before {content:""; display:block; width:6px; height:6px; position:absolute; left:0; top:7px; background:#000; border-radius:50%}
+
+.voting-item {padding:69px 0 0 0}
+.voting-item-title {font:24px/29px NGTL_Regular, sans-serif; color:#000}
+.voting-item-content {padding:42px 0 0 0}
+.voting-item-content::after {content:""; display:block; clear:both}
+.voting-item-photo {float:left; width:165px; line-height:0; margin:0 30px 0 0}
+.voting-item-photo img {display:block; width:100%}
+.voting-item-ctrl {float:left; width:165px; height:248px; border:1px solid #dadada; text-align:center; cursor:pointer; padding:70px 0 0 0; color:#999}
+.voting-item-ctrl.checked {border-color:#70ad47; background:#70ad47; color:#fff}
+.voting-item-ctrl.disabled {opacity:.5; cursor:default}
+.voting-item-ctrl-icon {width:67px; height:50px; background:url(../images/voting-item-ctrl-icon.png); margin:0 auto}
+.voting-item-ctrl.checked .voting-item-ctrl-icon {background-position:left -50px}
+.voting-item-ctrl-text {font:24px/29px NGTL_Regular, sans-serif; padding:35px 0 0 0}
+.voting-item-ctrl.checked .voting-item-ctrl-text-default {display:none}
+.voting-item-ctrl-text-checked {display:none}
+.voting-item-ctrl.checked .voting-item-ctrl-text-checked {display:inline}
+.voting-item-ctrl-cancel {display:none; font:12px/15px NGTL_Regular, sans-serif; text-transform:uppercase; padding:33px 0 0 0}
+.voting-item-ctrl.checked .voting-item-ctrl-cancel {display:block}
+.voting-item-ctrl-cancel-text {border-bottom:1px dashed #fff}
+
+.voting-results {position:fixed; left:0; bottom:0; right:0; z-index:99; background:#ffd200}
+.gallery-open .voting-results {bottom:0 !important}
+.voting-results form {margin:0; padding:0}
+.voting-result {float:left; width:165px; margin:0 30px 0 0; padding:14px 0 13px 0}
+.voting-results:hover .voting-result {padding:38px 0 0 0}
+.gallery-open .voting-result {padding:38px 0 0 0}
+.voting-results:hover .voting-result:hover {padding:24px 0 0 0}
+.gallery-open .voting-result.gallery-active {padding:24px 0 0 0}
+.voting-result-number {float:left; padding:0 0 0 16px; color:#000; font:bold 14px/21px Arial, Helvetica, sans-serif}
+.voting-result-title {margin:0 17px 0 43px}
+.voting-results:hover .voting-result-title {display:none}
+.gallery-open .voting-result-title {display:none}
+.voting-result-title-inner {float:left; width:100%; position:relative; overflow:hidden; white-space:nowrap; font:14px/21px NGTL_Bold, sans-serif; color:#000; height:21px; text-overflow:ellipsis}
+.voting-result-title-inner::before {content:""; display:block; position:absolute; left:0; top:0; right:0; bottom:0; border:1px dashed #7f6900}
+.voting-result.checked .voting-result-title-inner::before {display:none}
+.voting-result-input {display:none}
+.voting-submit {float:left; width:165px}
+.voting-results:hover .voting-submit {padding:50px 0 0 0}
+.gallery-open .voting-submit {padding:50px 0 0 0}
+.voting-submit input {display:block; border-radius:0; background:#000; width:100%; margin:0; padding:0; outline:none; border:none; height:48px; box-sizing:border-box; color:#fff; text-align:center; font:bold 12px/48px Arial, Helvetica, sans-serif; -webkit-appearance:none; cursor:pointer; text-transform:uppercase}
+.voting-submit input:disabled {opacity:.1; cursor:default}
+.voting-result-preview {display:none; margin:0 40px 0; position:relative}
+.voting-results:hover .voting-result-preview {display:block}
+.gallery-open .voting-result-preview {display:block}
+.voting-result-preview-inner {float:left; width:100%; position:relative; overflow:hidden; line-height:0; height:92px}
+.voting-results:hover .voting-result:hover .voting-result-preview-inner {height:106px}
+.gallery-open .voting-result.gallery-active .voting-result-preview-inner {height:106px}
+.voting-result-preview-inner img {display:block; width:100%}
+.voting-result-preview-inner::before {content:""; display:block; position:absolute; left:0; top:0; right:0; bottom:0; border:1px dashed #7f6900; border-bottom:none}
+.voting-result.checked .voting-result-preview-inner::before {display:none}
+.voting-result-remove {display:none; width:29px; height:29px; position:absolute; right:-15px; top:-14px; background:#000 url(../images/voting-result-remove.png) no-repeat center; border-radius:50%}
+.voting-result.checked .voting-result-remove {display:block}
+.voting-result-scroll {display:none; width:29px; height:29px; position:absolute; left:10px; top:35px; background:#fff url(../images/voting-result-scroll.png) no-repeat center; border-radius:50%}
+.voting-result.checked:hover .voting-result-scroll {display:block}
+.gallery-open .voting-result.gallery-active .voting-result-scroll {display:block}
+.voting-result-gallery {display:none; width:29px; height:29px; position:absolute; right:10px; top:35px; background:#fff url(../images/voting-result-gallery.png) no-repeat center; border-radius:50%}
+.voting-result.gallery-active .voting-result-gallery {background-color:#ffd200}
+.gallery-open .voting-result.gallery-active .voting-result-gallery {display:block}
+.voting-result.checked:hover .voting-result-gallery {display:block}
+
+.gallery-open {overflow:hidden}
+
+.voting-gallery {display:none; position:fixed; left:0; top:0; right:0; bottom:130px; background:rgba(255, 255, 255, .95); z-index:9999}
+.gallery-open .voting-gallery {display:block}
+
+.voting-gallery-header {padding:50px 0 0 0}
+.voting-gallery-header::after {content:""; display:block; clear:both}
+.voting-gallery-close {float:right; font:20px/29px NGTL_Regular, sans-serif; color:#000}
+.voting-gallery-close::before {content:""; display:inline-block; vertical-align:middle; width:9px; height:5px; background:url(../images/voting-gallery-close.png); margin:0 10px 0 0}
+.voting-gallery-close a {color:#000; text-decoration:none; border-bottom:1px dashed #000}
+.voting-gallery-close a:hover {border-bottom:none}
+.voting-gallery-title {margin:0 100px 0 0; font:24px/29px NGTL_Regular, sans-serif; color:#000}
+
+.voting-gallery-content {font-size:0; line-height:0; letter-spacing:-1px; white-space:nowrap; margin:40px -15px 20px -15px}
+.voting-gallery-list {position:relative; width:100%}
+.voting-gallery-list .slick-list {overflow:visible}
+.voting-gallery-item {display:inline-block; vertical-align:top; width:33.33%}
+.voting-gallery-item-inner {margin:0 15px; position:relative; overflow:hidden}
+.voting-gallery-item-inner img {display:block; width:100%}
+.voting-gallery-list .slick-prev,
+.voting-gallery-list .slick-next {display:block; position:absolute; z-index:2; top:50%; width:51px; height:18px; border:none; border-radius:0; margin:-9px 0 0 0; padding:0; outline:none; -webkit-appearance:none; cursor:pointer; background:url(../images/voting-gallery-arrows.png)}
+.voting-gallery-list .slick-prev {left:-85px}
+.voting-gallery-list .slick-next {right:-85px; background-position:-51px top}
+.voting-gallery-list .slick-prev.slick-disabled {display:none !important}
+.voting-gallery-list .slick-next.slick-disabled {display:none !important}
