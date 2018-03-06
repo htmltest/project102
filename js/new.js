@@ -176,7 +176,12 @@ $(document).ready(function() {
         if ($('.voting-results').length > 0) {
             var curBlock = $('.voting-results');
             var curScroll = $(window).scrollTop();
-            var curHeight = $(window).height();
+            var curWidth = $(window).width();
+            var curDiff = 1;
+            if (curWidth < 480) {
+                curDiff = 480 / curWidth;
+            }
+            var curHeight = $(window).height() * curDiff;
             var curFooterTop = $('footer').offset().top - curScroll - curHeight;
             if (curFooterTop < 0) {
                 curBlock.css({'bottom': -curFooterTop});
@@ -187,6 +192,12 @@ $(document).ready(function() {
 
         $('.voting-result.gallery-active').removeClass('gallery-active');
         $('html').removeClass('gallery-open');
+
+        $('.voting-item').each(function() {
+            var curItem = $(this);
+            var curHeight = curItem.find('.voting-item-photos').height();
+            curItem.find('.voting-item-ctrl').css({'height': curHeight});
+        });
     });
 
     $('body').on('click', '.voting-results-open-mobile-link', function() {
