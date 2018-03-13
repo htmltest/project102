@@ -80,8 +80,19 @@ body {min-width:480px}
     .voting-item-ctrl.checked .voting-item-ctrl-icon {right:12px; top:10px; background-position:left -22px; width:35px; height:26px}
 }
 
-.voting-results {position:fixed; left:0; bottom:0; right:0; z-index:99; background:#ffd200; height:82px; overflow:hidden}
-.gallery-open .voting-results {height:168px}
+.footer,
+.footer.bg.fixed {z-index:999999}
+
+.gallery-open .footer,
+.gallery-open .footer.bg.fixed {z-index:0}
+
+@media screen and (max-width:1199px) {
+    .footer,
+    .footer.bg.fixed {z-index:0}
+}
+
+.voting-results {position:fixed; left:0; bottom:0; right:0; z-index:99999; background:#ffd200; height:82px; transition:height .3s}
+.gallery-open .voting-results {height:82px}
 @media screen and (min-width:1200px) {
     .voting-results:hover {height:168px}
 }
@@ -105,17 +116,17 @@ body {min-width:480px}
 .voting-submit input:disabled {opacity:.1; cursor:default}
 .voting-result-preview {margin:0 40px; position:relative}
 .voting-result-preview-inner {float:left; width:100%; position:relative; overflow:hidden; line-height:0; height:116px}
-.voting-result-preview-inner img {display:block; max-width:100%; height:100%}
+.voting-result-preview-inner img {display:block; min-width:100%; max-width:100%; min-height:100%}
 .voting-result-preview-inner::before {content:""; display:block; position:absolute; left:0; top:0; right:0; bottom:0; border:1px dashed rgba(0, 0, 0, .25)}
 .voting-result.checked .voting-result-preview-inner::before {display:none}
 .voting-result-remove {display:none; width:29px; height:29px; position:absolute; right:-15px; top:-14px; background:#000 url(../images/voting-result-remove.png) no-repeat center; border-radius:50%}
 .voting-result.checked .voting-result-remove {display:block}
-.voting-result-scroll {display:none; width:29px; height:29px; position:absolute; left:10px; top:35px; background:#fff url(../images/voting-result-scroll.png) no-repeat center; border-radius:50%}
+.voting-result-scroll {display:none; width:29px; height:29px; position:absolute; left:50%; margin-left:-34px; top:35px; background:#fff url(../images/voting-result-scroll.png) no-repeat center; border-radius:50%}
 @media screen and (min-width:1200px) {
     .voting-result.checked:hover .voting-result-scroll {display:block}
 }
 .gallery-open .voting-result.gallery-active .voting-result-scroll {display:block}
-.voting-result-gallery {display:none; width:29px; height:29px; position:absolute; right:10px; top:35px; background:#fff url(../images/voting-result-gallery.png) no-repeat center; border-radius:50%}
+.voting-result-gallery {display:none; width:29px; height:29px; position:absolute; left:50%; margin-left:5px; top:35px; background:#fff url(../images/voting-result-gallery.png) no-repeat center; border-radius:50%}
 .voting-result.gallery-active .voting-result-gallery {background-color:#ffd200}
 .gallery-open .voting-result.gallery-active .voting-result-gallery {display:block}
 @media screen and (min-width:1200px) {
@@ -156,38 +167,54 @@ body {min-width:480px}
     .gallery-open .voting-results.open-mobile .voting-submit {padding:0}
 }
 
+.voting-gallery-preview {display:none; position:absolute; z-index:99999; left:0; bottom:100%; margin-bottom:27px; background:#000; padding:16px 10px; font-size:0; line-height:0; letter-spacing:-1px; white-space:nowrap}
+.voting-result.gallery-active .voting-gallery-preview {display:block}
+.voting-gallery-preview-item {display:inline-block; vertical-align:top; width:53px; border:4px solid #000; margin:0 6px; cursor:pointer}
+.voting-gallery-preview-item img {display:block; width:100%}
+.voting-gallery-preview-item.active {border-color:#fff}
+.voting-gallery-preview-close {display:block; cursor:pointer; width:29px; height:29px; position:absolute; right:-15px; top:-14px; background:#000 url(../images/voting-result-remove.png) no-repeat center; border-radius:50%}
+
+@media screen and (max-width:1199px) {
+    .voting-result.gallery-active .voting-gallery-preview {display:none}
+}
+
 .gallery-open {overflow:hidden}
 
-.voting-gallery {display:none; position:fixed; left:0; top:0; right:0; bottom:168px; background:#000; z-index:9999; border-top:1px solid #333}
+.voting-gallery {display:none; position:fixed; left:0; top:0; right:0; bottom:82px; background:#000; z-index:9999; border-top:1px solid #333}
 .gallery-open .voting-gallery {display:block}
 
 @media screen and (max-width:1199px) {
     .voting-gallery {bottom:286px}
 }
 
-.voting-gallery-header {padding:18px 0 0 0}
-.voting-gallery-header::after {content:""; display:block; clear:both}
-.voting-gallery-close {float:right; font:20px/29px NGTL_Regular, sans-serif; color:#fff}
-.voting-gallery-close::before {content:""; display:inline-block; vertical-align:middle; width:9px; height:5px; background:url(../images/voting-gallery-close.png); margin:0 10px 0 0}
-.voting-gallery-close a {color:#fff; text-decoration:none; border-bottom:1px dashed #fff}
-@media screen and (min-width:1200px) {
-    .voting-gallery-close a:hover {border-bottom:none}
-}
-.voting-gallery-title {margin:0 100px 0 0; font:24px/29px NGTL_Regular, sans-serif; color:#fff}
+.voting-gallery-header {height:0; position:relative; z-index:3}
+.voting-gallery-header .container {position:relative}
+.voting-gallery-close {position:absolute; right:15px; top:18px}
+.voting-gallery-close a {display:block; width:16px; height:16px; background:url(../images/voting-gallery-close.png)}
+.voting-gallery-title {position:absolute; left:15px; top:18px; font:24px/29px NGTL_Regular, sans-serif; color:#fff}
 
-.voting-gallery-content {font-size:0; line-height:0; letter-spacing:-1px; white-space:nowrap; margin:35px -15px 60px -15px}
+.voting-gallery-content {font-size:0; line-height:0; letter-spacing:-1px; white-space:nowrap; margin:0}
 .voting-gallery-list {position:relative; width:100%}
 .voting-gallery-list .slick-list {overflow:visible}
 .voting-gallery-item {display:inline-block; vertical-align:top; width:33.33%}
-.voting-gallery-item-inner {margin:0 15px; position:relative; overflow:hidden}
-.voting-gallery-item-inner img {display:block; max-width:100%; max-height:100%}
+.voting-gallery-item-inner {position:relative; overflow:hidden}
+.voting-gallery-item-inner img {display:block; width:1000px; position:relative; left:50%; transform:translateX(-50%); cursor:move}
+.voting-gallery-item-top {position:absolute; left:0; top:0; right:0; height:5%; cursor:n-resize}
+.voting-gallery-item-bottom {position:absolute; left:0; bottom:0; right:0; height:5%; cursor:move; cursor:s-resize}
+.voting-gallery-mousedown .voting-gallery-item-top {display:none}
+.voting-gallery-mousedown .voting-gallery-item-bottom {display:none}
 .voting-gallery-list .slick-prev,
-.voting-gallery-list .slick-next {display:block; position:absolute; z-index:2; top:50%; width:51px; height:18px; border:none; border-radius:0; margin:-9px 0 0 0; padding:0; outline:none; -webkit-appearance:none; cursor:pointer; background:url(../images/voting-gallery-arrows.png)}
-.voting-gallery-list .slick-prev {left:-85px}
-.voting-gallery-list .slick-next {right:-85px; background-position:-51px top}
+.voting-gallery-list .slick-next {display:block; position:absolute; z-index:2; top:50%; width:121px; height:88px; border:none; border-radius:0; margin:-44px 0 0 0; padding:0; outline:none; -webkit-appearance:none; cursor:pointer; background:transparent}
+.voting-gallery-list .slick-prev {left:0}
+.voting-gallery-list .slick-next {right:0}
 .voting-gallery-list .slick-prev.slick-disabled {display:none !important}
 .voting-gallery-list .slick-next.slick-disabled {display:none !important}
+.voting-gallery-list .slick-prev::after,
+.voting-gallery-list .slick-next::after {content:""; display:block; position:absolute; left:50%; top:50%; width:51px; height:18px; margin:-9px 0 0 -25px; background:url(../images/voting-gallery-arrows.png)}
+.voting-gallery-list .slick-next::after {background-position:-51px top}
 
 @media screen and (max-width:1199px) {
-    .voting-gallery-item-inner img {display:block; width:306px; margin:0 auto}
+    .voting-gallery-item-inner img {display:block; width:306px !important; margin:0 auto; left:auto; transform:none}
+    .voting-gallery-item-top {display:none}
+    .voting-gallery-item-bottom {display:none}
 }
