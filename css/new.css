@@ -193,6 +193,12 @@ body {min-width:480px}
 .voting-gallery-close a {display:block; width:16px; height:16px; background:url(../images/voting-gallery-close.png)}
 .voting-gallery-title {position:absolute; left:15px; top:18px; font:24px/29px NGTL_Regular, sans-serif; color:#fff}
 
+.voting-gallery-bottom {position:absolute; left:0; bottom:0; right:0; height:0; z-index:3}
+.voting-gallery-bottom .container {position:relative}
+.voting-gallery-icons {position:absolute; left:100%; margin-left:-31px; bottom:26px; font-size:10px; line-height:28px; text-transform:uppercase; color:#fff}
+.voting-gallery-move {padding:0 0 0 28px; background:url(../images/voting-gallery-icon-move.png) no-repeat left center}
+.voting-gallery-zoom {padding:0 0 0 28px; background:url(../images/voting-gallery-icon-zoom.png) no-repeat left center; margin:12px 0 0 0}
+
 .voting-gallery-content {font-size:0; line-height:0; letter-spacing:-1px; white-space:nowrap; margin:0}
 .voting-gallery-list {position:relative; width:100%}
 .voting-gallery-list .slick-list {overflow:visible}
