@@ -258,8 +258,8 @@ $(document).ready(function() {
                 newListPreview += '<div class="voting-gallery-preview-item"><img src="' + $(this).data('big') + '" alt="" /></div>';
             });
 
-            curResult.find('.voting-gallery-preview-list').html(newListPreview);
-            curResult.find('.voting-gallery-preview-list .voting-gallery-preview-item').eq(0).addClass('active');
+            $('.voting-gallery-preview-list').html(newListPreview);
+            $('.voting-gallery-preview-list .voting-gallery-preview-item').eq(0).addClass('active');
 
             if ($('.voting-gallery-list').hasClass('slick-slider')) {
                 $('.voting-gallery-list').slick('unslick');
